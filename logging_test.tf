@@ -6,6 +6,7 @@ terraform {
       version = "~> 3.0"
     }
   }
+#backend added
   backend "s3" {
     bucket = "terraform-backend-for-circle-ci"
     key    = "terraform.tfstate"
