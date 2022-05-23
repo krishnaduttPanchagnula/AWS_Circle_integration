@@ -7,7 +7,7 @@ workflows:
       - hold-apply:
           type: approval
           requires:
-            - plan-apply
+            - plan
       - apply:
           requires:
             - hold-apply
