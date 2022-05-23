@@ -23,9 +23,6 @@ workflows:
             - hold-destroy
       
 
-
-
-
 jobs:
   plan:
     working_directory: /tmp/project
@@ -36,6 +33,10 @@ jobs:
       - run:
           name: terraform init & Validate
           command: |
+            echo '[default]' >> ./credentials
+            echo 'aws_access_key_id='$AWS_ACCESS_KEY_ID_DEV >> ./credentials
+            echo 'aws_secret_access_key='$AWS_SECRET_ACCESS_KEY_DEV >> ./credentials
+          
             terraform init
             terraform validate
       - run:
