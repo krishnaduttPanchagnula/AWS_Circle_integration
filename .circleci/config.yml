@@ -27,7 +27,7 @@ jobs:
   plan:
     working_directory: /tmp/project
     docker:
-      - image: terraform/default
+      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
       - checkout
       - run:
@@ -50,7 +50,7 @@ jobs:
             - ./env.txt
   apply:
     docker:
-      - image: terraform/default
+      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
       - attach_workspace:
           at: .
@@ -64,7 +64,7 @@ jobs:
             - .
   plan-destroy:
     docker:
-      - image: terraform/default
+      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
       - attach_workspace:
           at: .
@@ -79,7 +79,7 @@ jobs:
 
   destroy:
     docker:
-      - image: terraform/default
+      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
       - attach_workspace:
           at: .
